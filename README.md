@@ -33,7 +33,7 @@ Let us dive into the files:
 1.  `git clone https://github.com/damon-demon/Black-Box-Defense.git`
 
 2.  Install dependencies:
-```
+    ```
     conda create -n Black_Box_Defense python=3.6
     conda activate Black_Box_Defense
     conda install numpy matplotlib pandas seaborn scipy==1.1.0

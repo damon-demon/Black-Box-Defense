@@ -28,6 +28,8 @@ Let us dive into the files:
 2. `AE_DS_train.py`: the main code of our paper which is used to train the different AE-DS/DS model with FO/ZO optimization methods used in our paper.
 3. `AE_DS_certify.py`: Given a pretrained smoothed classifier, returns a certified L2-radius for each data point in a given dataset using the algorithm of [Cohen et al (2019)](https://github.com/locuslab/smoothing).
 4. `architectures.py`: an entry point for specifying which model architecture to use per classifiers, denoisers and AutoEncoders.
+5. [archs/](archs) contains the network architecture files.
+6. [trained_models/](trained_models) contains the checkpoints of AE-DS and base classifiers.
 
 ## Getting Started
 1.  `git clone https://github.com/damon-demon/Black-Box-Defense.git`

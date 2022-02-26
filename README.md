@@ -49,4 +49,4 @@ Let us dive into the files:
     ```
 Check the results in `ZO_AE_DS_lr-3_q192_Coord_NoSkip_CF_result/sigma_0.25`.
 
-For more information, contact [Yimeng Zhang](mailto:zhan1853@msu.edu) with any additional questions or comments.
+For more information, contact [Yimeng(Damon) Zhang](mailto:zhan1853@msu.edu) with any additional questions or comments.

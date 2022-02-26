@@ -31,10 +31,8 @@ parser.add_argument('--ground_truth', default='original_output', type=str,
 
 # Dataset
 parser.add_argument('--dataset', type=str, choices=DATASETS)
-parser.add_argument('--train_data_min', default=-2.5090184, type=float, help='minimum value of training data')
-parser.add_argument('--train_data_max', default=3.3369503, type=float, help='maximum value of training data')
-parser.add_argument('--test_data_min', default=-6.0698295, type=float, help='minimum value of testing data')
-parser.add_argument('--test_data_max', default=7.120035, type=float, help='maximum value of testing data')
+parser.add_argument('--data_min', default=-2.5090184, type=float, help='minimum value of training data')
+parser.add_argument('--data_max', default=3.3369503, type=float, help='maximum value of training data')
 
 parser.add_argument('--batch', default=256, type=int, metavar='N', help='batchsize (default: 256)')
 parser.add_argument('--measurement', default=576, type=int, metavar='N', help='the size of measurement for image reconstruction')

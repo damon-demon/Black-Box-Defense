@@ -17,3 +17,14 @@ We formulate the problem of black-box defense (as shown in Fig. 1) and investiga
 <p>
 <img src="figures/Table_1.png" width="888" >
 </p>
+
+## Overview of the Repository
+
+Our code is based on the open source codes of [Salmanet al.](https://github.com/microsoft/denoised-smoothing). The major contents of our repo are as follows:
+
+* [code/](code) contains the code for our experiments on MNIST, CIFAR-10, STL-10, Restricted ImageNet.
+
+Let us dive into the files in [code/](code):
+
+1. `train_classifier.py`: a generic script for training ImageNet/Cifar-10 classifiers, with Gaussian agumentation option, achieving SOTA.
+2. `AE_DS_train.py`: the main code of our paper which is used to train the different AE-DS/DS model with FO/ZO optimization methods used in our paper.

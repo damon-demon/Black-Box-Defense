@@ -629,7 +629,7 @@ def train_ae(loader: DataLoader, encoder: torch.nn.Module, decoder: torch.nn.Mod
                     grad_est = torch.zeros(batch_size, d).cuda()
 
                     # ZO Gradient Estimation
-                    for k in range(args.q):
+                    for k in range(d):
                         # Obtain a direction vector (1-0)
                         u = torch.zeros(batch_size, d).cuda()
                         u[:, k] = 1
@@ -659,7 +659,7 @@ def train_ae(loader: DataLoader, encoder: torch.nn.Module, decoder: torch.nn.Mod
             elif args.zo_method =='CGE_sim':
                 # Generate Coordinate-wise Query Matrix
                 u_flat = torch.zeros(1, args.q, d).cuda()
-                for k in range(args.q):
+                for k in range(d):
                     u_flat[:, k, k] = 1
                 u_flat = u_flat.repeat(1, batch_size, 1).view(batch_size * args.q, d)
                 u = u_flat.view(-1, channel, h, w)
@@ -881,7 +881,7 @@ def recon_train(loader: DataLoader, denoiser: torch.nn.Module, criterion, optimi
                 grad_est = torch.zeros(batch_size, d).cuda()
 
                 # ZO Gradient Estimation
-                for k in range(args.q):
+                for k in range(d):
                     # Obtain a direction vector (1-0)
                     u = torch.zeros(batch_size, d).cuda()
                     u[:, k] = 1
@@ -1261,7 +1261,7 @@ def recon_train_ae(loader: DataLoader, encoder: torch.nn.Module, decoder: torch.
                 grad_est = torch.zeros(batch_size, d).cuda()
 
                 # ZO Gradient Estimation
-                for k in range(args.q):
+                for k in range(d):
                     # Obtain a direction vector (1-0)
                     u = torch.zeros(batch_size, d).cuda()
                     u[:, k] = 1

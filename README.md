@@ -7,3 +7,9 @@ This repository contains the code and models necessary to replicate the results 
 
 ICLR'22 (Spotlight) <br>
 Paper: https://openreview.net/forum?id=W9G_ImpHlQd <br>
+
+We formulate the problem of black-box defense and investigate it through the lens of zeroth-order (ZO) optimization. Different from existing work, our paper aims to design the restriction-least black-box defense and our formulation is built upon a query-based black-box setting, which avoids the use of surrogate models.
+
+<p>
+<img src="figures/Fig_1.PNG" width="1000" >
+</p>

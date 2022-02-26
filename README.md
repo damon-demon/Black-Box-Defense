@@ -11,9 +11,9 @@ Paper: https://openreview.net/forum?id=W9G_ImpHlQd <br>
 We formulate the problem of black-box defense (as shown in Fig. 1) and investigate it through the lens of zeroth-order (ZO) optimization. Different from existing work, our paper aims to design the restriction-least black-box defense and our formulation is built upon a query-based black-box setting, which avoids the use of surrogate models.
 
 <p>
-<img src="figures/Fig_1.png" width="1000" >
+<img src="figures/Fig_1.png" width="888" >
 </p>
 
 <p>
-<img src="figures/Table_1.png" width="1000" >
+<img src="figures/Table_1.png" width="888" >
 </p>

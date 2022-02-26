@@ -41,6 +41,11 @@ Let us dive into the files:
     ```
 3.  Train a AE-DS model using Coordinate-Wise Gradient Estimation (CGE) for ZO optimization on CIFAR-10 Dataset.
     ```
-    python3 AE_DS_train.py --lr 1e-3 --outdir ZO_AE_DS_lr-3_q192_Coord --dataset cifar10 --arch cifar_dncnn --encoder_arch cifar_encoder_192_24 --decoder_arch cifar_decoder_192_24 --epochs 200 --train_method whole --pretrained-denoiser $pretrained_denoiser  --pretrained-encoder $pretrained_encoder --pretrained-decoder $pretrained_decoder --classifier $pretrained_clf --noise_sd 0.25  --q 192
+    python3 AE_DS_train.py --model_type AE_DS --lr 1e-3 --outdir ZO_AE_DS_lr-3_q192_Coord --dataset cifar10 --arch cifar_dncnn --encoder_arch cifar_encoder_192_24 --decoder_arch cifar_decoder_192_24 --epochs 200 --train_method whole --optimization_method ZO --zo_method CGE --pretrained-denoiser $pretrained_denoiser  --pretrained-encoder $pretrained_encoder --pretrained-decoder $pretrained_decoder --classifier $pretrained_clf --noise_sd 0.25  --q 192
     ```
+4.  Certify the robustness of a AE-DS model on CIFAR-10 dataset.
+    ```
+    python3 AE_DS_certify.py --dataset cifar10 --encoder_arch cifar_encoder_192_24 --decoder_arch cifar_decoder_192_24 --base_classifier $pretrained_base_classifier --denoiser $pretrained_denoiser  --pretrained-encoder $pretrained_encoder --pretrained-decoder $pretrained_decoder --sigma 0.25 --outfile ZO_AE_DS_lr-3_q192_Coord_NoSkip_CF_result/sigma_0.25 --batch 400 --N 10000 --skip 1 --l2radius 0.25
+    ```
+Check the results in `ZO_AE_DS_lr-3_q192_Coord_NoSkip_CF_result/sigma_0.25`.
     

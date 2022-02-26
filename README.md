@@ -39,5 +39,8 @@ Let us dive into the files:
     conda install numpy matplotlib pandas seaborn scipy==1.1.0
     conda install pytorch torchvision cudatoolkit=10.0 -c pytorch # for Linux
     ```
-3.  xx
+3.  Train a AE-DS model using Coordinate-Wise Gradient Estimation (CGE) for ZO optimization on CIFAR-10 Dataset.
+    ```
+    python3 AE_DS_train.py --lr 1e-3 --outdir ZO_AE_DS_lr-3_q192_Coord --dataset cifar10 --arch cifar_dncnn --encoder_arch cifar_encoder_192_24 --decoder_arch cifar_decoder_192_24 --epochs 200 --train_method whole --pretrained-denoiser $pretrained_denoiser  --pretrained-encoder $pretrained_encoder --pretrained-decoder $pretrained_decoder --classifier $pretrained_clf --noise_sd 0.25  --q 192
+    ```
     

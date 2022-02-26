@@ -48,4 +48,5 @@ Let us dive into the files:
     python3 AE_DS_certify.py --dataset cifar10 --encoder_arch cifar_encoder_192_24 --decoder_arch cifar_decoder_192_24 --base_classifier $pretrained_base_classifier --denoiser $pretrained_denoiser  --pretrained-encoder $pretrained_encoder --pretrained-decoder $pretrained_decoder --sigma 0.25 --outfile ZO_AE_DS_lr-3_q192_Coord_NoSkip_CF_result/sigma_0.25 --batch 400 --N 10000 --skip 1 --l2radius 0.25
     ```
 Check the results in `ZO_AE_DS_lr-3_q192_Coord_NoSkip_CF_result/sigma_0.25`.
-    
+
+For more information, contact [Yimeng Zhang](mailto:zhan1853@msu.edu) with any additional questions or comments.

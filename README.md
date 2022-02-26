@@ -20,7 +20,7 @@ We formulate the problem of black-box defense (as shown in Fig. 1) and investiga
 
 ## Overview of the Repository
 
-Our code is based on the open source codes of [Salmanet al.](https://github.com/microsoft/denoised-smoothing). Our repo contains the code for our experiments on MNIST, CIFAR-10, STL-10, Restricted ImageNet.
+Our code is based on the open source codes of [Salmanet al.(2020)](https://github.com/microsoft/denoised-smoothing). Our repo contains the code for our experiments on MNIST, CIFAR-10, STL-10, Restricted ImageNet.
 
 Let us dive into the files:
 

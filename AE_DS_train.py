@@ -1,6 +1,5 @@
 from architectures import DENOISERS_ARCHITECTURES, get_architecture, IMAGENET_CLASSIFIERS, AUTOENCODER_ARCHITECTURES
 from datasets import get_dataset, DATASETS
-from test_denoiser import test, test_with_classifier
 from torch.nn import MSELoss, CrossEntropyLoss
 from torch.optim import SGD, Optimizer, Adam
 from torch.optim.lr_scheduler import StepLR, MultiStepLR
@@ -41,10 +40,14 @@ parser.add_argument('--measurement', default=576, type=int, metavar='N', help='t
 # Optimization Method
 parser.add_argument('--optimization_method', default='FO', type=str,
                     help="FO: First-Order (White-Box), ZO: Zeroth-Order (Black-box)",
-                    choices=['FO, ZO'])
+                    choices=['FO', 'ZO'])
 parser.add_argument('--zo_method', default='RGE', type=str,
                     help="Random Gradient Estimation: RGE, Coordinate-Wise Gradient Estimation: CGE",
                     choices=['RGE', 'CGE', 'CGE_sim'])
+parser.add_argument('--q', default=192, type=int, metavar='N',
+                    help='query direction (default: 20)')
+parser.add_argument('--mu', default=0.005, type=float, metavar='N',
+                    help='Smoothing Parameter')
 
 # Model type
 parser.add_argument('--model_type', default='DS', type=str,
@@ -193,9 +196,9 @@ def main():
 
     # --------------------- Objective function ---------------------
     if args.train_objective == 'classification':
-        criterion = CrossEntropyLoss(size_average=None, reduce=None, reduction='mean').cuda()
+        criterion = CrossEntropyLoss(size_average=None, reduce=False, reduction='none').cuda()
     elif args.train_objective == 'reconstruction':
-        criterion = MSELoss(size_average=None, reduce=None, reduction='mean').cuda()
+        criterion = MSELoss(size_average=None, reduce=None, reduction='none').cuda()
 
     # --------------------- Start Training -------------------------------
     best_acc = 0

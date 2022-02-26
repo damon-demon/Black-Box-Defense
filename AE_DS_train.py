@@ -70,7 +70,7 @@ parser.add_argument('--outdir', type=str, help='folder to save denoiser and trai
 parser.add_argument('--workers', default=4, type=int, metavar='N',
                     help='number of data loading workers (default: 4)')
 parser.add_argument('--optimizer', default='Adam', type=str,
-                    help='SGD, Adam, or Adam then SGD', choices=['SGD', 'Adam', 'AdamThenSGD'])
+                    help='SGD, Adam', choices=['SGD', 'Adam'])
 parser.add_argument('--epochs', default=600, type=int, metavar='N',
                     help='number of total epochs to run')
 parser.add_argument('--lr', '--learning-rate', default=1e-3, type=float,

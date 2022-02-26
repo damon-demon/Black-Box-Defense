@@ -50,7 +50,7 @@ parser.add_argument('--mu', default=0.005, type=float, metavar='N',
                     help='Smoothing Parameter')
 
 # Model type
-parser.add_argument('--model_type', default='DS', type=str,
+parser.add_argument('--model_type', default='AE_DS', type=str,
                     help="Denoiser + (AutoEncoder) + classifier/reconstructor",
                     choices=['DS', 'AE_DS'])
 parser.add_argument('--arch', type=str, choices=DENOISERS_ARCHITECTURES)
@@ -259,9 +259,6 @@ def main():
                         epoch, after - before,
                         args.lr, stab_train_loss, test_no_loss, test_no_loss_smooth, test_loss, test_loss_smooth,
                         recon_loss, recon_loss_smooth, adv_loss, smooth_loss))
-
-
-
 
         scheduler.step(epoch)
         args.lr = scheduler.get_lr()[0]

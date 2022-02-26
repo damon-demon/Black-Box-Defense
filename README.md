@@ -20,11 +20,24 @@ We formulate the problem of black-box defense (as shown in Fig. 1) and investiga
 
 ## Overview of the Repository
 
-Our code is based on the open source codes of [Salmanet al.](https://github.com/microsoft/denoised-smoothing). The major contents of our repo are as follows:
+Our code is based on the open source codes of [Salmanet al.](https://github.com/microsoft/denoised-smoothing). Our repo contains the code for our experiments on MNIST, CIFAR-10, STL-10, Restricted ImageNet.
 
-* [code/](code) contains the code for our experiments on MNIST, CIFAR-10, STL-10, Restricted ImageNet.
-
-Let us dive into the files in [code/](code):
+Let us dive into the files:
 
 1. `train_classifier.py`: a generic script for training ImageNet/Cifar-10 classifiers, with Gaussian agumentation option, achieving SOTA.
 2. `AE_DS_train.py`: the main code of our paper which is used to train the different AE-DS/DS model with FO/ZO optimization methods used in our paper.
+3. `AE_DS_certify.py`: Given a pretrained smoothed classifier, returns a certified L2-radius for each data point in a given dataset using the algorithm of [Cohen et al (2019)](https://github.com/locuslab/smoothing).
+4. `architectures.py`: an entry point for specifying which model architecture to use per classifiers, denoisers and AutoEncoders.
+
+## Getting Started
+1.  `git clone https://github.com/damon-demon/Black-Box-Defense.git`
+
+2.  Install dependencies:
+```
+    conda create -n Black_Box_Defense python=3.6
+    conda activate Black_Box_Defense
+    conda install numpy matplotlib pandas seaborn scipy==1.1.0
+    conda install pytorch torchvision cudatoolkit=10.0 -c pytorch # for Linux
+    ```
+3.  xx
+    

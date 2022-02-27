@@ -14,6 +14,13 @@ We formulate the problem of black-box defense (as shown in Fig. 1) and investiga
 <img src="figures/Fig_1.png" width="888" >
 </p>
 
+We propose a novel black-box defense approach, ZO AutoEncoder-based Denoised Smoothing (ZO-AE-DS) as shown in Fig. 3, which is able to tackle the challenge of ZO optimization in high dimensions and convert a pre-trained non-robust ML model into a certiﬁably robust model using only function queries.
+
+<p>
+<img src="figures/Fig_2.png" width="888" >
+</p>
+
+The performance comparisons with baselines are shown in Table 1.
 <p>
 <img src="figures/Table_1.png" width="888" >
 </p>

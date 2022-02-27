@@ -27,7 +27,7 @@ The performance comparisons with baselines are shown in Table 2.
 
 ## Overview of the Repository
 
-Our code is based on the open source codes of [Salmanet al.(2020)](https://github.com/microsoft/denoised-smoothing). Our repo contains the code for our experiments on MNIST, CIFAR-10, STL-10, Restricted ImageNet.
+Our code is based on the open source codes of [Salmanet al.(2020)](https://github.com/microsoft/denoised-smoothing). Our repo contains the code for our experiments on MNIST, CIFAR-10, STL-10, and Restricted ImageNet.
 
 Let us dive into the files:
 

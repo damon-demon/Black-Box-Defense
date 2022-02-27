@@ -271,19 +271,20 @@ def main():
             'optimizer': optimizer.state_dict(),
         }, os.path.join(args.outdir, 'denoiser.pth.tar'))
 
-        torch.save({
-            'epoch': epoch + 1,
-            'arch': args.encoder_arch,
-            'state_dict': encoder.state_dict(),
-            'optimizer': optimizer.state_dict(),
-        }, os.path.join(args.outdir, 'encoder.pth.tar'))
+        if args.model_type == 'AE_DS':
+            torch.save({
+                'epoch': epoch + 1,
+                'arch': args.encoder_arch,
+                'state_dict': encoder.state_dict(),
+                'optimizer': optimizer.state_dict(),
+            }, os.path.join(args.outdir, 'encoder.pth.tar'))
 
-        torch.save({
-            'epoch': epoch + 1,
-            'arch': args.decoder_arch,
-            'state_dict': decoder.state_dict(),
-            'optimizer': optimizer.state_dict(),
-        }, os.path.join(args.outdir, 'decoder.pth.tar'))
+            torch.save({
+                'epoch': epoch + 1,
+                'arch': args.decoder_arch,
+                'state_dict': decoder.state_dict(),
+                'optimizer': optimizer.state_dict(),
+            }, os.path.join(args.outdir, 'decoder.pth.tar'))
 
         # ----------------- Save the best model according to acc -----------------
         if test_acc > best_acc:
@@ -298,19 +299,20 @@ def main():
             'optimizer': optimizer.state_dict(),
         }, os.path.join(args.outdir, 'best_denoiser.pth.tar'))
 
-        torch.save({
-            'epoch': epoch + 1,
-            'arch': args.encoder_arch,
-            'state_dict': encoder.state_dict(),
-            'optimizer': optimizer.state_dict(),
-        }, os.path.join(args.outdir, 'best_encoder.pth.tar'))
+        if args.model_type == 'AE_DS':
+            torch.save({
+                'epoch': epoch + 1,
+                'arch': args.encoder_arch,
+                'state_dict': encoder.state_dict(),
+                'optimizer': optimizer.state_dict(),
+            }, os.path.join(args.outdir, 'best_encoder.pth.tar'))
 
-        torch.save({
-            'epoch': epoch + 1,
-            'arch': args.decoder_arch,
-            'state_dict': decoder.state_dict(),
-            'optimizer': optimizer.state_dict(),
-        }, os.path.join(args.outdir, 'best_decoder.pth.tar'))
+            torch.save({
+                'epoch': epoch + 1,
+                'arch': args.decoder_arch,
+                'state_dict': decoder.state_dict(),
+                'optimizer': optimizer.state_dict(),
+            }, os.path.join(args.outdir, 'best_decoder.pth.tar'))
 
 
 def train(loader: DataLoader, denoiser: torch.nn.Module, criterion, optimizer: Optimizer, epoch: int, noise_sd: float,

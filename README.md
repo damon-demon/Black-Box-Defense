@@ -14,7 +14,9 @@ We formulate the problem of black-box defense (as shown in Fig. 1) and investiga
 <img src="figures/Fig_1.png" width="888" >
 </p>
 
-We propose a novel black-box defense approach, **ZO AutoEncoder-based Denoised Smoothing (ZO-AE-DS)** as shown in Fig. 3, which is able to tackle the challenge of ZO optimization in high dimensions and convert a pre-trained non-robust ML model into a certiﬁably robust model using only function queries.
+We propose a novel black-box defense approach, **ZO AutoEncoder-based Denoised Smoothing (ZO-AE-DS)** as shown in Fig. 3, which is able to tackle the challenge of ZO optimization in high dimensions and convert a pre-trained non-robust ML model into a certiﬁably robust model using only function queries. 
+
+To train ZO-AE-DS, we adopt a two-stage training protocol. **1) White-box pre-training on AE**: At the ﬁrst stage, we pre-train the AE model by calling a standard FO optimizer (e.g., Adam) to minimize the reconstruction loss. The resulting AE will be used as the initialization of the second-stage training. We remark that the denoising model can also be pre-trained. However, such a pre-training could hamper optimization, i.e., making the second-stage training over θ easily trapped at a poor local optima. **2) End-to-end training**: At the second stage, we keep the pre-trained decoder intact and merge it into the black-box system.
 
 <p>
 <img src="figures/Fig_2.png" width="888" >

@@ -20,7 +20,7 @@ We propose a novel black-box defense approach, ZO AutoEncoder-based Denoised Smo
 <img src="figures/Fig_2.png" width="888" >
 </p>
 
-The performance comparisons with baselines are shown in Table 1.
+The performance comparisons with baselines are shown in Table 2.
 <p>
 <img src="figures/Table_1.png" width="888" >
 </p>

@@ -61,13 +61,21 @@ Let us dive into the files:
 Check the results in `ZO_AE_DS_lr-3_q192_Coord_NoSkip_CF_result/sigma_0.25`.
 
 ## Citation
+
 @inproceedings{
+
 zhang2022how,
+
 title={How to Robustify Black-Box {ML} Models? A Zeroth-Order Optimization Perspective},
+
 author={Yimeng Zhang and Yuguang Yao and Jinghan Jia and Jinfeng Yi and Mingyi Hong and Shiyu Chang and Sijia Liu},
+
 booktitle={International Conference on Learning Representations},
+
 year={2022},
+
 url={https://openreview.net/forum?id=W9G_ImpHlQd}
+
 }
 
 ## Contact

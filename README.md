@@ -74,5 +74,5 @@ url={ https://openreview.net/forum?id=W9G_ImpHlQd }
 ## Contact
 For more information, contact [Yimeng(Damon) Zhang](mailto:zhan1853@msu.edu) with any additional questions or comments.
 <p>
-<img src="figures/logo_white_new.png" width="666" >
+<img src="figures/OPTML.png" width="666" >
 </p>

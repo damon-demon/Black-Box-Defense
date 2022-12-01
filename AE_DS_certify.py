@@ -1,4 +1,4 @@
-from architectures import get_architecture, IMAGENET_CLASSIFIERS, AUTOENCODER_ARCHITECTURES
+from architectures import get_architecture, IMAGENET_CLASSIFIERS, AUTOENCODER_ARCHITECTURES, DENOISERS_ARCHITECTURES
 from core import Smooth
 from datasets import get_dataset, DATASETS, get_num_classes
 from time import time
@@ -35,7 +35,7 @@ parser.add_argument('--model_type', default='DS', type=str,
                     help="Denoiser + (AutoEncoder) + classifier/reconstructor",
                     choices=['DS', 'AE_DS'])
 parser.add_argument("--base_classifier", type=str, help="path to saved pytorch model of base classifier")
-parser.add_argument('--denoiser', type=str, default='',
+parser.add_argument('--pretrained-denoiser', type=str, default='',
                     help='Path to a denoiser to attached before classifier during certificaiton.')
 
 parser.add_argument('--pretrained-encoder', default='', type=str,
@@ -45,9 +45,12 @@ parser.add_argument('--pretrained-decoder', default='', type=str,
 
 parser.add_argument('--encoder_arch', type=str, default='cifar_encoder', choices=AUTOENCODER_ARCHITECTURES)
 parser.add_argument('--decoder_arch', type=str, default='cifar_decoder', choices=AUTOENCODER_ARCHITECTURES)
+parser.add_argument('--arch', type=str, choices=DENOISERS_ARCHITECTURES)
+
+parser.add_argument('--workers', default=4, type=int, metavar='N',
+                    help='number of data loading workers (default: 4)')
 
 args = parser.parse_args()
-
 
 if __name__ == "__main__":
 
@@ -132,7 +135,7 @@ if __name__ == "__main__":
         x = x.cuda()
         prediction, radius = smoothed_classifier.certify(x, args.N0, args.N, args.alpha, args.batch)
         after_time = time()
-        #correct = int(prediction == label)
+        # correct = int(prediction == label)
         correct = int(prediction == label and radius > args.l2radius)
         sta_correct = int(prediction == label)
 
@@ -140,7 +143,7 @@ if __name__ == "__main__":
         sta_count += sta_correct
 
         time_elapsed = str(datetime.timedelta(seconds=(after_time - before_time)))
-        
+
         f = open(args.outfile, 'a')
         print("{}\t{}\t{}\t{:.3}\t{}\t{}\t{}\t{}".format(
             i, label, prediction, radius, sta_correct, time_elapsed, count, sta_count), file=f, flush=True)

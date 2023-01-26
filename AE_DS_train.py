@@ -92,6 +92,15 @@ parser.add_argument('--print-freq', default=10, type=int,
                     metavar='N', help='print frequency (default: 10)')
 parser.add_argument('--noise_sd', default=0.0, type=float,
                     help="standard deviation of noise distribution for data augmentation")
+parser.add_argument('--visual_freq', default=1, type=int,
+                    metavar='N', help='visualization frequency (default: 5)')
+
+# Parameters for adv examples generation
+parser.add_argument('--noise_num', default=10, type=int,
+                    help='number of noise for smoothing')
+parser.add_argument('--num_steps', default=40, type=int,
+                    help='Number of steps for attack')
+parser.add_argument('--epsilon', default=512, type=float)
 
 args = parser.parse_args()
 torch.manual_seed(0)
